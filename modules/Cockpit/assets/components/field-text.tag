@@ -1,3 +1,9 @@
+
+App.Utils.fieldUi['text'] = {
+    "cls": {"type":"text","label":App.i18n.get('Class')},
+    "slug": {"type":"boolean"}
+};
+
 <field-text>
 
     <style>

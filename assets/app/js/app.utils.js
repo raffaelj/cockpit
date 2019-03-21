@@ -336,6 +336,8 @@
         return (this.renderer[renderer] || this.renderer.default)(v, meta);
     };
 
+    App.Utils.fieldUi = {};
+
     // riot enhancments
     (function(riot){
 

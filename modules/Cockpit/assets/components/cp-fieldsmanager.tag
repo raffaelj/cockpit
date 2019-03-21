@@ -71,6 +71,7 @@
             <div class="uk-tab uk-flex uk-flex-center uk-margin" data-uk-tab>
                 <li class="uk-active"><a>{ App.i18n.get('General') }</a></li>
                 <li><a>{ App.i18n.get('Access') }</a></li>
+                <li if="{ fieldUi }"><a>{ App.i18n.get('Field Options') }</a></li>
             </div>
 
             <div class="uk-margin-top ref-tab">
@@ -117,6 +118,13 @@
                 </div>
                 <div class="uk-hidden">
                     <field-access-list class="uk-margin-large uk-margin-large-top uk-display-block" bind="field.acl"></field-access-list>
+                </div>
+                <div class="uk-hidden" if="{ fieldUi }">
+                  { JSON.stringify() }
+                    <div each="{ uifield, uifieldidx in fieldUi }">
+                        <label>{ uifield.label || uifieldidx }</label>
+                        <cp-field type="{ uifield.type || 'text' }" bind="field.options[{uifieldidx}]"></cp-field>
+                    </div>
                 </div>
             </div>
 
@@ -165,6 +173,7 @@
 
         this.fields  = [];
         this.field = null;
+        this.fieldUi = null;
         this.reorder = false;
 
         // get all available fields
@@ -292,6 +301,8 @@
         fieldSettings(e) {
 
             this.field = e.item.field;
+
+            this.fieldUi = App.Utils.fieldUi[e.item.field.type] || null;
 
             UIkit.modal(this.refs.modalField, {bgclose:false}).show()
         }
