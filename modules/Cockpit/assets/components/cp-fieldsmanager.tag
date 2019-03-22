@@ -120,11 +120,13 @@
                     <field-access-list class="uk-margin-large uk-margin-large-top uk-display-block" bind="field.acl"></field-access-list>
                 </div>
                 <div class="uk-hidden" if="{ fieldUi }">
-                  { JSON.stringify() }
-                    <div each="{ uifield, uifieldidx in fieldUi }">
-                        <label>{ uifield.label || uifieldidx }</label>
-                        <cp-field type="{ uifield.type || 'text' }" bind="field.options[{uifieldidx}]"></cp-field>
+                    <div class="uk-grid uk-grid-small" if="{ typeof fieldUi === 'object' }">
+                        <div class="uk-width-{ uifield.width || '1-1' }" each="{ uifield, uifieldidx in fieldUi }">
+                            <label>{ uifield.label || uifieldidx }</label>
+                            <cp-field type="{ uifield.type || 'text' }" opts="{ uifield.options || {} }" bind="field.options[{uifieldidx}]"></cp-field>
+                        </div>
                     </div>
+                    <raw content="{ fieldUi() }" if="{ typeof fieldUi === 'function' }"></raw>
                 </div>
             </div>
 

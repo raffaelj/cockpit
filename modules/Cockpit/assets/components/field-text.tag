@@ -1,7 +1,13 @@
 
 App.Utils.fieldUi['text'] = {
-    "cls": {"type":"text","label":App.i18n.get('Class')},
-    "slug": {"type":"boolean"}
+    "slug": {"type":"boolean","width":"1-3"},
+    "placeholder": {"type":"text","width":"1-3"},
+    "pattern": {"type":"text","width":"1-3"},
+    "maxlength": {"type":"text","options":{"type":"number"},"width":"1-3"},
+    "minlength": {"type":"text","options":{"type":"number"},"width":"1-3"},
+    "step": {"type":"text","options":{"type":"number"},"width":"1-3"},
+    "size": {"type":"text","options":{"type":"number"},"width":"1-2"},
+    "cls": {"type":"text","label":App.i18n.get('Class'),"width":"1-2"},
 };
 
 <field-text>
