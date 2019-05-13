@@ -30,6 +30,10 @@ class Img {
     public function __construct($img) {
 
         $this->image = new SimpleImage($img);
+
+        // Rotate to exif orientation
+        $this->image->autoOrient();
+
     }
 
     public function negative() {
