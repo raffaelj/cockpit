@@ -28,10 +28,13 @@ class Lexy {
         'else',
         'unless',
         'unescape_echos',
-        'php_tags'
+        'php_tags',
+        'after'
     );
 
     protected $extensions = array();
+
+    protected $after = array();
 
     /**
      * [$allowed_calls description]
@@ -233,8 +236,9 @@ class Lexy {
         $this->allowed_calls[] = $call;
     }
 
-    public function extend($compiler) {
-        $this->extensions[] = $compiler;
+    public function extend($compiler, $after = false) {
+        if ($after) $this->after[] = $compiler;
+        else $this->extensions[] = $compiler;
     }
 
     /**
@@ -427,6 +431,22 @@ class Lexy {
         }
 
         return $value;
+    }
+
+    /**
+     * Execute user defined compilers.
+     *
+     * @param  string  $value
+     * @return string
+     */
+    protected function compile_after($value) {
+
+        foreach ($this->after as &$compiler) {
+            $value = call_user_func($compiler, $value);
+        }
+
+        return $value;
+
     }
 
 }
