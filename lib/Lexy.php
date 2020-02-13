@@ -28,8 +28,7 @@ class Lexy {
         'else',
         'unless',
         'unescape_echos',
-        'php_tags',
-        'cleanup'
+        'php_tags'
     );
 
     protected $extensions = array();
@@ -428,18 +427,6 @@ class Lexy {
         }
 
         return $value;
-    }
-
-    /**
-     * Remove white space between php tags after line breaks.
-     *
-     * @param  string  $value
-     * @return string
-     */
-    protected function compile_cleanup($value) {
-
-        return preg_replace('/([\r\n])(\s*)\<\?php/', '$1<?php', $value);
-
     }
 
 }
