@@ -1,4 +1,7 @@
-# Cockpit Next
+# Cockpit Next (library for WPMultiplane)
+
+This is a fork of Cockpit CMS to be used as a library inside the WordPress plugin WPMultiplane.
+The only change I made is to replace `$app = new LimeExtra\App($config);` with `$app = new LimeWordPress\App($config);` in `bootstrap.php`.
 
 * Homepage: [http://getcockpit.com](https://getcockpit.com)
 * Twitter: [@getcockpit](http://twitter.com/getcockpit)

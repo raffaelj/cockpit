@@ -135,7 +135,8 @@ function cockpit($module = null) {
             array_splice($config['modules.disabled'], array_search('Cockpit', $config['modules.disabled']), 1);
         }
 
-        $app = new LimeExtra\App($config);
+        $app = new LimeWordPress\App($config);
+//         $app = new LimeExtra\App($config);
 
         $app['config'] = $config;
 
