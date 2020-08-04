@@ -26,11 +26,16 @@
         "erusev/parsedown": "^1.7",
         "erusev/parsedown-extra": "^0.7.1",
         "maennchen/zipstream-php": "^0.5.2",
-        "colinodell/json5": "^2.1"
+        "colinodell/json5": "^2.1",
+        "composer/installers": "^1.2"
     },
 
     "config": {
         "vendor-dir": "lib/vendor",
         "optimize-autoloader": true
+    },
+
+    "extra": {
+        "installer-name": "cockpit"
     }
 }
